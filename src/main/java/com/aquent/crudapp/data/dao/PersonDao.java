@@ -2,7 +2,8 @@ package com.aquent.crudapp.data.dao;
 
 import com.aquent.crudapp.domain.Person;
 import java.util.List;
-
+import java.lang.String;
+import java.util.Map;
 /**
  * Operations on the "person" table.
  */
@@ -14,7 +15,12 @@ public interface PersonDao {
      * @return list of person records
      */
     List<Person> listPeople();
-
+    /**
+     * Retrieves all of the client records.
+     *
+     * @return list of person records
+     */
+    Map<Integer,String> listClients();
     /**
      * Creates a new person record.
      *

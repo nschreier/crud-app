@@ -35,6 +35,8 @@ public class PersonController {
     public ModelAndView list() {
         ModelAndView mav = new ModelAndView("person/list");
         mav.addObject("persons", personService.listPeople());
+        mav.addObject("clients",personService.listClients());
+
         return mav;
     }
 
@@ -48,6 +50,7 @@ public class PersonController {
         ModelAndView mav = new ModelAndView("person/create");
         mav.addObject("person", new Person());
         mav.addObject("errors", new ArrayList<String>());
+        mav.addObject("clients",personService.listClients());
         return mav;
     }
 
@@ -69,6 +72,7 @@ public class PersonController {
             ModelAndView mav = new ModelAndView("person/create");
             mav.addObject("person", person);
             mav.addObject("errors", errors);
+            mav.addObject("clients",personService.listClients());
             return mav;
         }
     }
@@ -84,6 +88,7 @@ public class PersonController {
         ModelAndView mav = new ModelAndView("person/edit");
         mav.addObject("person", personService.readPerson(personId));
         mav.addObject("errors", new ArrayList<String>());
+        mav.addObject("clients",personService.listClients());
         return mav;
     }
 
@@ -105,6 +110,7 @@ public class PersonController {
             ModelAndView mav = new ModelAndView("person/edit");
             mav.addObject("person", person);
             mav.addObject("errors", errors);
+            mav.addObject("clients",personService.listClients());
             return mav;
         }
     }

@@ -3,6 +3,7 @@
     Created on : Apr 22, 2011, 3:04:46 PM
     Author     : FMilens
 --%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 <%@taglib prefix='c' uri='http://java.sun.com/jsp/jstl/core' %>
 <%@taglib prefix='fn' uri='http://java.sun.com/jsp/jstl/functions'%>
@@ -48,6 +49,12 @@
             <br/>
             <label for="zipCode">Zip Code:</label>
             <input type="text" name="zipCode" value="${person.zipCode}"/>
+            <br/>
+            <br/>
+          <label for="assocClient">Company:</label>
+			<form:select name="assocClient" path="clients" id="assocClient" value="${person.assocClient}">
+			    <form:options items="${clients}" />
+			</form:select>
             <br/>
             <input type="submit" name="Submit" value="Submit"/>
         </form>

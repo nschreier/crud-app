@@ -1,8 +1,9 @@
 package com.aquent.crudapp.service;
 
 import java.util.List;
-
+import java.util.Map;
 import com.aquent.crudapp.domain.Person;
+
 
 /**
  * Person operations.
@@ -15,6 +16,12 @@ public interface PersonService {
      * @return list of person records
      */
     List<Person> listPeople();
+    /**
+     * Retrieves all of the person records.
+     *
+     * @return list of person records
+     */
+    Map<Integer, String> listClients();
 
     /**
      * Creates a new person record.

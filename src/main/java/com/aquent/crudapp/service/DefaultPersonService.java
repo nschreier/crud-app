@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Set;
-
+import java.util.Map;
 import javax.validation.ConstraintViolation;
 import javax.validation.Validator;
 
@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.aquent.crudapp.data.dao.PersonDao;
+
 import com.aquent.crudapp.domain.Person;
 
 /**
@@ -29,7 +30,11 @@ public class DefaultPersonService implements PersonService {
     public void setValidator(Validator validator) {
         this.validator = validator;
     }
-
+    @Override
+    @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+    public Map<Integer, String> listClients() {
+        return personDao.listClients();
+    }
     @Override
     @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
     public List<Person> listPeople() {

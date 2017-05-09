@@ -3,6 +3,7 @@
     Created on : Apr 22, 2011, 2:25:22 PM
     Author     : FMilens
 --%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 <%@taglib prefix='c' uri='http://java.sun.com/jsp/jstl/core' %>
 <%@taglib prefix='fn' uri='http://java.sun.com/jsp/jstl/functions'%>
@@ -26,6 +27,7 @@
                             <th>First Name</th>
                             <th>Last Name</th>
                             <th>Email Address</th>
+                            <th>Company</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -35,12 +37,16 @@
                                 <td>${person.firstName}</td>
                                 <td>${person.lastName}</td>
                                 <td>${person.emailAddress}</td>
+                                                        
+                       			
+                       		<td>${clients[person.assocClient]}</td>
+                       			
                                 <td>
                                     <a href="${pageContext.request.contextPath}/person/edit/${person.personId}">Edit Person</a>
                                     <a href="${pageContext.request.contextPath}/person/delete/${person.personId}">Delete Person</a>
                                 </td>
                             </tr>
-                        </c:forEach>
+                        </c:forEach>    
                     </tbody>
                 </table>
             </c:when>
@@ -48,5 +54,6 @@
                 <p>No results found.</p>
             </c:otherwise>
         </c:choose>
+  
     </body>
 </html>

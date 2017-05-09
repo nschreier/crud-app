@@ -3,7 +3,7 @@
     Created on : Apr 22, 2011, 3:24:13 PM
     Author     : FMilens
 --%>
-
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@taglib prefix='c' uri='http://java.sun.com/jsp/jstl/core' %>
 <%@taglib prefix='fn' uri='http://java.sun.com/jsp/jstl/functions'%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -12,6 +12,7 @@
 
 <html>
     <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Create Person</title>
     </head>
@@ -26,6 +27,7 @@
             </ul>
         </c:if>
         <form action="${pageContext.request.contextPath}/person/create" method="POST">
+        
             <br/>
             <label for="firstName">First Name:</label>
             <input type="text" name="firstName" value="${person.firstName}"/>
@@ -48,7 +50,17 @@
             <label for="zipCode">Zip Code:</label>
             <input type="text" name="zipCode" value="${person.zipCode}"/>
             <br/>
+            <br/>
+            <label for="assocClient">Company:</label>
+			<form:select name="assocClient" path="clients">
+			<form:option value="NONE" label="--- Select ---"/>
+			    <form:options items="${clients}" />
+			</form:select>
+     
+            <br/>
             <input type="submit" name="Submit" value="Submit"/>
         </form>
+
     </body>
+
 </html>
