@@ -1,3 +1,5 @@
+My time limited attempt.  First time using MVC, JSP, and Maven. This was fun :) if I had more time I could have finished.
+
 # Aquent developer candidate project
 
 You can find the code to use as the basis for this project at https://github.com/aquent/crud-app. Please fork the repo on GitHub and submit a link to your fork.
